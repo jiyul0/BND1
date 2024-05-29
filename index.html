@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation</title>
+    <style>
+        /* CSS 스타일을 여기에 작성합니다 */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center; /* 텍스트를 가운데 정렬합니다 */
+            background-color: #f2f2f2; /* 배경색을 옅은 회색으로 설정합니다 */
+            padding-top: 50px; /* 페이지의 맨 위에서부터 50px 내려오도록 설정합니다 */
+        }
+        #mood-selector {
+            margin-bottom: 20px;
+        }
+        #movie-recommendation {
+            margin-top: 20px;
+        }
+        .movie {
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+        .movie img {
+            width: 200px; /* 이미지의 너비를 조정합니다 */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Recommendation</h1>
+    <div>
+        <label for="mood-selector">기분을 선택하세요:</label>
+        <select id="mood-selector">
+            <option value="happy">행복한</option>
+            <option value="sad">슬픈</option>
+            <option value="excited">신나는</option>
+            <option value="calm">차분한</option>
+            <option value="thrilled">흥분된</option>
+            <option value="angry">화난</option>
+            <option value="nostalgic">향수를 불러일으키는</option>
+            <option value="surprised">놀라운</option>
+            <!-- 기분을 추가할 수 있습니다 -->
+        </select>
+        <button onclick="recommendMovie()">영화 추천</button>
+    </div>
+    <div id="movie-recommendation"></div>
+
+    <script>
+        // JavaScript 코드를 여기에 작성합니다
+        function recommendMovie() {
+            var mood = document.getElementById("mood-selector").value;
+            var recommendation = "";
+
+            // 기분에 따른 영화 추천 로직을 작성합니다
+            switch (mood) {
+                case "happy":
+                    recommendation = [
+                        { title: "씽크홀", poster: "https://image.tmdb.org/t/p/w500/y3oZMrATsEqRhvQ3VvEUAf02voG.jpg", trailer: "https://www.youtube.com/watch?v=2jOp0Utxs4A" },
+                        { title: "라라랜드", poster: "https://image.tmdb.org/t/p/w500/ylXCdC106IKiarftHkcacasaAcb.jpg", trailer: "https://www.youtube.com/watch?v=0pdqf4P9MB8" },
+                        { title: "인사이드 아웃", poster: "https://image.tmdb.org/t/p/w500/aAmfIX3TT40zUHGcCKrlOZRKC7u.jpg", trailer: "https://www.youtube.com/watch?v=seMwpP0yeu4" }
+                    ];
+                    break;
+                case "sad":
+                    recommendation = [
+                        { title: "살인의 추억", poster: "https://image.tmdb.org/t/p/w500/w2vP42IqHvsiK3oF8Keeo5Z0OxV.jpg", trailer: "https://www.youtube.com/watch?v=2HkjrJ6IK5E" },
+                        { title: "타이타닉", poster: "https://image.tmdb.org/t/p/w500/kHXEpyfl6zqn8a6YuozZUujufXf.jpg", trailer: "https://www.youtube.com/watch?v=ZQ6klONCq4s" },
+                        { title: "그대를 사랑합니다", poster: "https://image.tmdb.org/t/p/w500/czVpJxAUa6UdC8lYYrCVn9DgDNr.jpg", trailer: "https://www.youtube.com/watch?v=qL54XPdMQys" }
+                    ];
+                    break;
+                case "excited":
+                    recommendation = [
+                        { title: "매트릭스", poster: "https://image.tmdb.org/t/p/w500/lZpWprJqbIFpEV5uoHfoK0KCnTW.jpg", trailer: "https://www.youtube.com/watch?v=vKQi3bBA1y8" },
+                        { title: "인셉션", poster: "https://image.tmdb.org/t/p/w500/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg", trailer: "https://www.youtube.com/watch?v=66TuSJo4dZM" },
+                        { title: "아바타", poster: "https://image.tmdb.org/t/p/w500/kmcqlZGaSh20zpTbuoF0Cdn07dT.jpg", trailer: "https://www.youtube.com/watch?v=5PSNL1qE6VY" }
+                    ];
+                    break;
+                case "calm":
+                    recommendation = [
+                        { title: "온워드: 단 하루의 기적", poster: "https://image.tmdb.org/t/p/w500/wIQQzouDk7gVvqDOtLIWR0O9ra.jpg", trailer: "https://www.youtube.com/watch?v=H_E93ewFL2k" },
+                        { title: "겨울왕국", poster: "https://image.tmdb.org/t/p/w500/pjeMs3yqRmFL3giJy4PMXWZTTPa.jpg", trailer: "https://www.youtube.com/watch?v=TbQm5doF_Uc" },
+                        { title: "마이너리티 리포트", poster: "https://image.tmdb.org/t/p/w500/aSaxamEz7p8v6HGzAvZHoYSKPXU.jpg", trailer: "https://www.youtube.com/watch?v=4CkKt2V1du8" }
+                    ];
+                    break;
+                case "thrilled":
+                    recommendation = [
+                        { title: "다크 나이트", poster: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg", trailer: "https://www.youtube.com/watch?v=EXeTwQWrcwY" },
+                        { title: "미션 임파서블", poster: "https://image.tmdb.org/t/p/w500/l7GqbzkJwowYRIXAtUz2iCPi64a.jpg", trailer: "https://www.youtube.com/watch?v=wb49-oV0F78" },
+                        { title: "헌터 킬러", poster: "https://image.tmdb.org/t/p/w500/6vcDalR50RWa309vBH1NLmG2rjQ.jpg", trailer: "https://www.youtube.com/watch?v=CV70BjfReCU" }
+                    ];
+                    break;
+                case "angry":
+                    recommendation = [
+                        { title: "노트북", poster: "https://image.tmdb.org/t/p/w500/ytP5bkL2ItNQCYw3Jg2OCeWZGI.jpg", trailer: "https://www.youtube.com/watch?v=ee413y5dB28" },
+                        { title: "메멘토", poster: "https://image.tmdb.org/t/p/w500/fQMSaP88cf1nz4qwuNEEFtazuDM.jpg", trailer: "https://www.youtube.com/watch?v=zhdJCE8X_Qk" },
+                        { title: "쇼생크 탈출", poster: "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", trailer: "https://www.youtube.com/watch?v=7_tO-9bH2jc" }
+                    ];
+                    break;
+                case "nostalgic":
+                    recommendation = [
+                        { title: "포레스트 검프", poster: "https://image.tmdb.org/t/p/w500/yE5d3BUhE8hCnkMUJOo1QDoOGNz.jpg", trailer: "https://www.youtube.com/watch?v=bLvqoHBptjg" },
+                        { title: "쓰리 빌보드", poster: "https://image.tmdb.org/t/p/w500/s4fjpOvQMjqQJxUI78xEs7O1keY.jpg", trailer: "https://www.youtube.com/watch?v=Jit3YhGx5pU" },
+                        { title: "터미네이터 2", poster: "https://image.tmdb.org/t/p/w500/jIhL6mlT7AblhbHJgEoiBIOUVl1.jpg", trailer: "https://www.youtube.com/watch?v=eajuMYNYtuY" }
+                    ];
+                    break;
+                case "surprised":
+                    recommendation = [
+                        { title: "킬빌", poster: "https://image.tmdb.org/t/p/w500/yvtXoEI8TBN4ecURc41QF31asM.jpg", trailer: "https://www.youtube.com/watch?v=7kSuas6mRpk" },
+                        { title: "세븐", poster: "https://image.tmdb.org/t/p/w500/vic4M2zyxwY6t1SgNJhs4e9DPsy.jpg", trailer: "https://www.youtube.com/watch?v=4eHCGjxg5Yw" },
+                        { title: "셔터 아일랜드", poster: "https://image.tmdb.org/t/p/w500/nBbXmAI5wnX9dWMlsTrjq4iuGXI.jpg", trailer: "https://www.youtube.com/watch?v=XfiM7vggBag" }
+                    ];
+                    break;
+                // 나머지 case도 동일하게 작성합니다.
+                default:
+                    recommendation = [];
+            }
+
+            // 추천된 영화 중에서 랜덤으로 하나를 선택합니다
+            var randomIndex = Math.floor(Math.random() * recommendation.length);
+            var selectedMovie = recommendation[randomIndex];
+
+            // 추천된 영화를 화면에 표시합니다
+            var movieRecommendationDiv = document.getElementById("movie-recommendation");
+            movieRecommendationDiv.innerHTML = "";
+
+            var movieDiv = document.createElement("div");
+            movieDiv.classList.add("movie");
+
+            var movieTitle = document.createElement("p");
+            movieTitle.innerText = selectedMovie.title;
+            movieDiv.appendChild(movieTitle);
+
+            var moviePoster = document.createElement("img");
+            moviePoster.src = selectedMovie.poster; // 포스터 이미지 URL을 할당합니다.
+            movieDiv.appendChild(moviePoster);
+
+            // 예고편 링크를 추가합니다
+            var trailerLink = document.createElement("a");
+            trailerLink.href = selectedMovie.trailer;
+            trailerLink.innerText = "예고편 보기";
+            movieDiv.appendChild(trailerLink);
+
+            movieRecommendationDiv.appendChild(movieDiv);
+        }
+    </script>
+</body>
+</html>
